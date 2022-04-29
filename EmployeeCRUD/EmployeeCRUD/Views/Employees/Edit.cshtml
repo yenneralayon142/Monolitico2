@@ -1,0 +1,70 @@
+﻿@model Employee
+
+<div class= "container   box-shadow p-5" >
+
+	<div>
+	<h2>Editar un empleado</h2>
+	</div>
+
+	<form method="post"  asp-controller="Employees" asp-action = "Edit">
+
+
+
+		<div asp-validation-summary="All"> </div>
+
+
+		<div class= "form-row">
+			<div class="form-group col-md-6"> 
+				<label asp-for="Name">Nombre del empleado:</label>
+				<input type="text" class="form-control mb-3 " asp-for="Name" />
+				<span asp-validation-for="Name" class="alert-danger"></span>
+			</div>
+
+			
+			<div class="form-group col-md-6"> 
+				<label asp-for="Designation">Cargo del empleado:</label>
+				<input type="text" class="form-control mb-3 " asp-for="Designation" />
+				<span asp-validation-for="Designation" class="alert-danger"></span>
+			</div>
+
+			
+			<div class="form-group col-md-6"> 
+				<label asp-for="Address">Dirección</label>
+				<input type="text" class="form-control mb-3 " asp-for="Address"/>
+				<span asp-validation-for="Address" class="alert-danger"></span>
+			</div>
+
+			<div class="form-group col-md-6 mb-3"> 
+				<label asp-for="RecordUpdateOn">Fecha de Modificacion:</label>
+				<input type="datetime-local" class="form-control mb-3 " asp-for="RecordUpdateOn" />
+				<span asp-validation-for="RecordUpdateOn" class="alert-danger"></span>
+			</div>
+
+			
+			<div class="form-group col-md-6 mb-3">
+
+				<input type="hidden" class="form-control " asp-for="RecordCreation" />
+
+			</div>
+
+
+		</div>
+
+		<button type="submit" class="btn btn-primary btn-lg p-2">
+
+			<i class="bi bi-file-plus-fill"></i>
+			Actualizar
+		</button>
+
+		<a asp-controller="Employees" asp-action="Index" class="btn btn-lg btn-warning p-2 "> Regresar </a>
+	</form>
+</div>
+
+@section Scripts{
+
+	@{
+		<partial name="_ValidationScriptsPartial"/>
+	}
+
+
+}
