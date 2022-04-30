@@ -18,7 +18,7 @@ namespace EmployeeCRUD.Controllers
         // GET: EmployeesController
         public ActionResult Index()
         {
-            IEnumerable<Employee>colEmployees = _context.Employees;
+            IEnumerable<Employee>colEmployees = _context.Employees.Where(s=>s.Estate==true);// Código refactorizado para retornar 
             return View(colEmployees);
         }
 
@@ -69,7 +69,7 @@ namespace EmployeeCRUD.Controllers
             {
                 return NotFound();
             }
-            return View();
+            return View(employeefromdb);
         }
 
         // POST: EmployeesController/Edit/5
@@ -120,12 +120,19 @@ namespace EmployeeCRUD.Controllers
             try
             {
                 var employeefromdb = _context.Employees.Find(id);
+
+               
+
+
                 if (employeefromdb == null)
                 {
                     return NotFound();
 
                 }
-                _context.Employees.Remove(employeefromdb);
+                // _context.Employees.Remove(employeefromdb); // Refactorizado para inactivar el usuario. No eliminarlo 
+                employeefromdb.Estate = false;
+                _context.Employees.Update(employeefromdb);
+
                 _context.SaveChanges();
                 TempData["ResultOk"] = "Data Deleted Successfully";
                 return RedirectToAction("Index");
