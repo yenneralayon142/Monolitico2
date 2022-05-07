@@ -2050,11 +2050,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\Trabajos Yenner\\Trabajos Victor\\Programación Visual Studio\\EmployeeCRUD\\EmployeeCRUD\\EmployeeCRUD.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Monolitico2\\EmployeeCRUD\\EmployeeCRUD\\EmployeeCRUD.csproj",
       "projectName": "EmployeeCRUD",
-      "projectPath": "C:\\Users\\User\\Documents\\Trabajos Yenner\\Trabajos Victor\\Programación Visual Studio\\EmployeeCRUD\\EmployeeCRUD\\EmployeeCRUD.csproj",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Monolitico2\\EmployeeCRUD\\EmployeeCRUD\\EmployeeCRUD.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\Trabajos Yenner\\Trabajos Victor\\Programación Visual Studio\\EmployeeCRUD\\EmployeeCRUD\\obj\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Monolitico2\\EmployeeCRUD\\EmployeeCRUD\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
