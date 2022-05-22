@@ -1,9 +1,14 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using EmployeeCRUD.Data;
+using EmployeeCRUD.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");;
+//var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection"); ;
+
+//// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));;
@@ -11,14 +16,23 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();;
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext2>();
 
 builder.Services.AddControllersWithViews();
+
+//EmailSender
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<EmailOptions>(builder.Configuration);
+
+//SmsSender
+
+builder.Services.AddTransient<ISmsSender, SmsSender>();
+builder.Services.Configure<SmsOptions>(builder.Configuration);
 
 var app = builder.Build();
 
