@@ -1,15 +1,17 @@
 ﻿@page
-@model RegisterModel
+@using EmployeeCRUD.Models.ViewModels
+@model RegisterViewModel
+@*@model RegisterModel*@
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Registro";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
+            <h2>Crear una cuenta nueva</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating">
@@ -32,15 +34,15 @@
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h3>Use another service to register.</h3>
+            <h3>Usar otro servicio para registrarse</h3>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
                     <div>
                         <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
+                            No hay servicios de configuracion externa configurados. Mira este <a href="https://go.microsoft.com/fwlink/?LinkID=532715">articulo
+                            sobre la configuracion de esta aplicacion ASP.NET para admitir el inicio de sesión a través de servicios externos</a>.
                         </p>
                     </div>
                 }
@@ -61,7 +63,119 @@
         </section>
     </div>
 </div>
+*@
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title text-center">Registro de usuario</h3>
+        <form asp-controller="Cuentas" asp-action="Registro" method="post">
+        <div class="text-danger" asp-validation-summary="All"></div>
+            
+            <div class="row mt-4">
+                <div class="col-sm-6">
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+                    @*Nombres*@
+
+                    <div class="mb-3">
+                        <label asp-for="Nombres" class="col-md-2"></label>
+                         <input asp-for="Nombres" class="form-control" placeholder="Ingresa tu nombre"/>
+                        <span asp-validation-for="Nombres" class="text-danger"></span>
+                    </div>
+
+                    @*Apellidos*@
+                    <div class="mb-3">
+                        <label asp-for="Apellidos" class="col-md-2"></label>
+                         <input asp-for="Apellidos" class="form-control" placeholder="Ingresa tu Apellido"/>
+                        <span asp-validation-for="Apellidos" class="text-danger"></span>
+                    </div>
+
+                  @* Email*@
+                     <div class="mb-3">
+                        <label asp-for="Email" class="col-md-2"></label>
+                         <input asp-for="Email" class="form-control" placeholder="Ingresa tu email"/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                  @* Url*@
+
+                     <div class="mb-3">
+                        <label asp-for="URL" class="col-md-2"></label>
+                         <input asp-for="URL" class="form-control" placeholder="Ingresa tu url"/>
+                        <span asp-validation-for="URL" class="text-danger"></span>
+                    </div>
+
+                    @*Pais*@
+                    <div class="mb-3">
+                        <label asp-for="Pais" class="col-md-2"></label>
+                         <input asp-for="Pais" class="form-control" placeholder="Ingresa tu país" />
+                        <span asp-validation-for="Pais" class="text-danger"></span>
+                    </div>
+
+                   @*CodigoPais*@
+                     <div class="mb-3">
+                        <label asp-for="CodigoPais" class="col-md-2"></label>
+                         <input asp-for="CodigoPais" class="form-control" placeholder="Ingresa el código de tu país"/>
+                        <span asp-validation-for="CodigoPais" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6">
+
+                    @*Telefono*@
+                      <div class="mb-3">
+                        <label asp-for="Celular" class="col-md-2"></label>
+                         <input asp-for="Celular" class="form-control" placeholder="Ingresa tu teléfono"/>
+                        <span asp-validation-for="Celular" class="text-danger"></span>
+                    </div>
+
+                    @*Ciudad*@
+                    <div class="mb-3">
+                        <label asp-for="Ciudad" class="col-md-2"></label>
+                         <input asp-for="Ciudad" class="form-control" placeholder="Ingresa tu ciudad"/>
+                        <span asp-validation-for="Ciudad" class="text-danger"></span>
+                    </div>
+
+                    @*Direccion*@
+                     <div class="mb-3">
+                        <label asp-for="Direccion" class="col-md-2"></label>
+                         <input asp-for="Direccion" class="form-control" placeholder="Ingresa tu dirección"/>
+                        <span asp-validation-for="Direccion" class="text-danger"></span>
+                    </div>
+
+                    @*FechaNacimiento*@
+                     <div class="mb-3">
+                        <label asp-for="FechaNacimiento" class="col-md-4"></label>
+                         <input type="text" name="FechaNacimiento" class="form-control"  id="datepicker" placeholder="Ejemplo: 1990-10-05"/>
+                        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                    </div>
+
+                    @*Contraseña*@
+                     <div class="mb-3">
+                        <label asp-for="Password" class="col-md-2"></label>
+                         <input asp-for="Password" class="form-control" placeholder="Ingresa la contraseña"/>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    @*ConfirmacionContraseña*@
+                     <div class="mb-3">
+                        <label asp-for="ConfirmPassword" class="col-md-5"></label>
+                         <input asp-for="ConfirmPassword" class="form-control" placeholder="Ingresa la confirmación de contraseña"/>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>                    
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10 offset-2">
+                     <button type="submit" class="btn btn-success w-75 btn-lg">Registrarse</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
