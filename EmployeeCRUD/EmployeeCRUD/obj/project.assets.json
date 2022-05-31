@@ -3307,7 +3307,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Twilio/5.75.0": {
+      "Twilio/5.75.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "5.3.0",
@@ -10242,10 +10242,10 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Twilio/5.75.0": {
-      "sha512": "RJBdDIJuuVBtwajTwnTXHnE5KmjSHR2qjbL6Ncz6aWiFhA3Mj51R0uxz3zINt4DHm/eD3W7hAxCulKOUJIGPRg==",
+    "Twilio/5.75.1": {
+      "sha512": "uYkeKaWiewfxWyQXkPsOD3tUyAAvEYEu097D7SFlpDhCFDVuDz1MoDYFvu/w10Z0Jb1c96Y/ZAr8PqB7tnv9lA==",
       "type": "package",
-      "path": "twilio/5.75.0",
+      "path": "twilio/5.75.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10257,7 +10257,7 @@
         "lib/netstandard1.4/Twilio.xml",
         "lib/netstandard2.0/Twilio.dll",
         "lib/netstandard2.0/Twilio.xml",
-        "twilio.5.75.0.nupkg.sha512",
+        "twilio.5.75.1.nupkg.sha512",
         "twilio.nuspec"
       ]
     }
@@ -10273,7 +10273,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.4",
       "SendGrid >= 9.27.0",
       "Swashbuckle.AspNetCore >= 6.3.0",
-      "Twilio >= 5.75.0"
+      "Twilio >= 5.75.1"
     ]
   },
   "packageFolders": {
@@ -10355,7 +10355,7 @@
           },
           "Twilio": {
             "target": "Package",
-            "version": "[5.75.0, )"
+            "version": "[5.75.1, )"
           }
         },
         "imports": [
@@ -10379,13 +10379,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.105\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\User\\Documents\\GitHub\\Monolitico2\\EmployeeCRUD\\EmployeeCRUD\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

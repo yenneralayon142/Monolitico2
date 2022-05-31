@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tT2DpXKSzZdNE4JfdZdwJqJwVR37v5ooEFLZID0xETapCc9cWzPTEfeqbSAbBlb4AIMlJ1kxWCa44y2Oogr7dw==",
+  "dgSpecHash": "FSlEnIgalGtfYMmfY3N7wxd0uJiiXxEBbnewXrJxhy8/IV7XZ8sMzSd60GD6O43CgeJR0hlvX9ZF7Nm0+q2xhQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\Monolitico2\\EmployeeCRUD\\EmployeeCRUD\\EmployeeCRUD.csproj",
   "expectedPackageFiles": [
@@ -194,14 +194,7 @@
     "C:\\Users\\User\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\twilio\\5.75.0\\twilio.5.75.0.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\twilio\\5.75.1\\twilio.5.75.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\User\\Documents\\GitHub\\Monolitico2\\EmployeeCRUD\\EmployeeCRUD\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
