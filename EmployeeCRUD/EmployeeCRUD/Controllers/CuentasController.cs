@@ -13,15 +13,15 @@ namespace EmployeeCRUD.Controllers
 
         private readonly UserManager<IdentityUser> _userManager;     // Manejador de Usuarios
         private readonly IEmailSender _emailSender;                  // Interfaz para manejo de Email
-        private readonly singInManager<IdentityUser> _singInManager; //Manejador de autenticacion
-
+        private readonly SignInManager<IdentityUser> _signInManager; //Manejador de autenticacion
+        private readonly RoleManager<IdentityUser> _roleManager;
 
         //Crear un constructor
 
-        public CuentasController(UserManager<IdentityUser> _userManager, singInManager<IdentityUser> _singInManager, IEmailSender _emailSender)
+        public CuentasController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> singInManager, IEmailSender emailSender)
         {
             _userManager = userManager;
-            _singInManager = singInManager;
+            _signInManager = singInManager;
             _emailSender = emailSender;
 
         }
@@ -73,12 +73,12 @@ namespace EmployeeCRUD.Controllers
                 if (resultado.Succeeded)
                 {
                     //Pendiente agregar el usuario al rol por defecto
-
+                    await 
                     //Confirmacion por email..
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(usuario);
                     var urlRetorno = Url.Action("ConfirmarEmail", "Cuentas", new { userid = usuario.Id, code = code }, protocol: HttpContext.Request.Scheme);
-                    await _emailSender.SendEmailAsync(
+                    await _emailSender.SendEmailAsync (
                                                          registroViewModel.Email,
                                                          "Confirmar su cuenta = EmployeesCRUD" +
                                                          "Por favor confirme su cuenta dando click aqui <a>href=\"" + urlRetorno + "\">enlace</a>"
