@@ -182,10 +182,10 @@ namespace EmployeeCRUD.Areas.Identity.Pages.Account
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registro(RegisterViewModel registroViewModel, string returnurl = null)
+        public async Task<IActionResult> Registro(RegisterViewModel registroViewModel)// , string returnurl = null
         {
-            ViewData["ReturnUrl"] = returnurl;
-            returnurl = returnurl ?? Url.Content("-/");
+            //ViewData["ReturnUrl"] = returnurl;
+            //returnurl = returnurl ?? Url.Content("-/");
             if (ModelState.IsValid)
             {
                 var usuario = new UsuarioRegistrado
@@ -205,22 +205,24 @@ namespace EmployeeCRUD.Areas.Identity.Pages.Account
                 };
 
                 var resultado = await _userManager.CreateAsync(usuario,registroViewModel.Password);
-                if (resultado.Succeeded)
-                {
-                    //Implementacion de confirmacion Email en el registro
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(usuario);
-                    var urlRetorno = Url.Action("ConfirmarEmail","Cuentas",new {userId=usuario.Id,code=code},protocol:HttpContext.Request.Scheme);
-                    await _emailSender.SendEmailAsync(registroViewModel.Email, "Confirmar su cuenta - Proyecto Identity",
-                    "Por favor confirme su cuenta dando click aqui: <a href=\"" + urlRetorno + "\">enlace</a> ");
-                }
+                //if (resultado.Succeeded)
+                //{
+                //    //Implementacion de confirmacion Email en el registro
+                //    var code = await _userManager.GenerateEmailConfirmationTokenAsync(usuario);
+                //    var urlRetorno = Url.Action("ConfirmarEmail","Cuentas",new {userId=usuario.Id,code=code},protocol:HttpContext.Request.Scheme);
+                //    await _emailSender.SendEmailAsync(registroViewModel.Email, "Confirmar su cuenta - Proyecto Identity",
+                //    "Por favor confirme su cuenta dando click aqui: <a href=\"" + urlRetorno + "\">enlace</a> ");
+                //}
 
                 await _signInManager.SignInAsync(usuario, isPersistent: false);
                 // ReturnRedirectToAction("Index","Home")
-                return LocalRedirect(returnurl);
+                // return LocalRedirect(returnurl);
+                return RedirectToAction("Index", "Home");
             }
 
             //Validar Errores Resultado
             return View(registroViewModel);
+
         }
     }
 }

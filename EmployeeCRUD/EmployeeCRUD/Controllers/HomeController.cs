@@ -1,6 +1,7 @@
 ﻿using EmployeeCRUD.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeCRUD.Controllers
 {
@@ -13,11 +14,14 @@ namespace EmployeeCRUD.Controllers
             _logger = logger;
         }
 
+
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
